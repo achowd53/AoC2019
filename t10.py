@@ -1,5 +1,5 @@
 import math
-t = open("t10.txt")
+t = open("input.txt") #put filename here
 asteroids = [x.strip() for x in t.readlines()]
 coords = []
 for row in range(len(asteroids)):
@@ -25,6 +25,7 @@ for x in coords:
         ans = (len(removed),x,removed)
 ans,x,removed = ans
 coordx,coordy = x
+print("Part 1:")
 print(ans)
 vaporized = [(math.atan2(x,y)-(2 * math.pi if math.atan2(x,y) > math.pi/2 else 0),(x,y)) for x,y in removed]
 vaporized.sort(key = lambda vaporized:vaporized[0], reverse=True)
@@ -32,6 +33,7 @@ a,b = vaporized[199][1]
 x,y = coordx - a,coordy + b
 while asteroids[x][y]!='#':
     x,y = x-a,y+b
+print("part 2:")
 print(y*100+x)
         
     
